@@ -1,0 +1,222 @@
+
+[theme='light'] {
+	--c-primary: #419bf9;
+	--c-secondary: #cc6600;
+	--c-act: #cc6600;
+
+	--c-bg1: #fff;
+	--c-bg2: #f2f2f2;
+	--c-bg3: #E0E0E0;
+	--c-bg4: #BDBDBD;
+
+	--c-bg-s: #f9f9f9;
+
+	--c-t1: #1a1a1a;
+	--c-t2: #333333;
+	--c-t3: #404040;
+	
+	--c-d1: rgba(60, 60, 60, 0.22);
+
+	--c-transbg: rgb(0, 0, 0, 0.2 );
+
+	--c-g: #757575;
+	--c-gb: #546E7A;
+
+	--c-bs: rgba(0, 0, 0, 0.1) 0px 2px 4px,
+	rgba(0, 0, 0, 0.2) 0px 2px 6px;
+}
+[theme='dark'] {
+	--c-primary: #0dcfda;
+	--c-secondary: #ff9933;
+	--c-act: #0dcfda;
+
+	--c-bg1: #1a1a1a;
+	--c-bg2: #2f2f2f;
+	--c-bg3: #757575;
+	--c-bg4: #9E9E9E;
+
+	--c-bg-s: #242424;
+
+	--c-t1: #fff;
+	--c-t2: #f2f2f2;
+	--c-t3: #DEE4E7;
+
+	--c-d1: rgba(84, 84, 84, 0.95);
+
+	--c-transbg: rgb(0, 0, 0, 0.8 );
+
+	--c-g: #E0E0E0;
+	--c-gb: #90A4AE;
+
+	--c-bs: rgba(255, 255, 255, 0.05) 0px 2px 4px,
+	rgba(255, 255, 255, 0.1) 0px 2px 6px
+}
+
+@function getColor($color-name) {
+	@return var(--c-#{$color-name});
+}
+
+@mixin fontoo($a, $b, $c) {
+	font-weight: $b !important;
+	font-size: $a !important;
+	color: getColor($c) !important;
+}
+@mixin fontz($a, $b, $c) {
+	font-weight: $b !important;
+	@include fz($a);
+	color: getColor($c) !important;
+}
+
+//mixins media
+@mixin mobile {
+  @media (max-width: 400px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mScreen {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+
+
+
+/* formKit */
+.loginPage .xcontainer .formContainer [data-invalid] .formkit-inner {
+  border-color: red;
+  box-shadow: 0 0 0 1px red;
+}
+
+.loginPage .xcontainer .formContainer [data-complete] .formkit-inner {
+  border-color: green;
+  box-shadow: 0 0 0 1px green;
+}
+.loginPage .xcontainer .formContainer [data-invalid] .formkit-inner::after {
+  content: '❗';
+  display: block;
+  padding: 0.5em;
+}
+.loginPage .xcontainer .formContainer [data-complete] .formkit-inner::after {
+  content: '✅';
+  display: block;
+  padding: 0.5em;
+}
+.formkit-suffix-icon:hover {
+  color: #337CCF;
+}
+.myLabel {
+
+	@include fontoo(0.9rem, 400, t1);
+}
+.myHelp {
+	line-height: 1.3 !important;
+	@include fontoo(0.9rem, 400, t1);
+}
+.formkit-outer {
+	@include mobile {
+		max-width: 300px !important;
+	}
+}
+.formkit-input {
+	color: getColor(t1);
+}
+
+
+
+//container
+.container {
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Small */
+@media (max-width: 992px) {
+	.container {
+		width: 100%;
+	}
+}
+
+/* Medium */
+@media (min-width: 992px) {
+	.container {
+		width: 970px;
+	}
+}
+
+/* Large */
+@media (min-width: 1200px) {
+	.container {
+		width: 1170px;
+	}
+}
+
+/* XLarge */
+@media (min-width: 1400px) {
+	.container {
+		width: 1370px;
+	}
+}
+
+
+/* padding */
+@media (max-width: 992px) {
+	.p-tb {
+		padding-top:1.5rem;
+		padding-bottom:1.5rem;
+	}
+}
+@media (min-width: 992px) {
+	.p-tb {
+		padding-top:2rem;
+		padding-bottom:2rem;
+	}
+}
+@media (max-width: 992px) {
+	.px-tb {
+		padding-top:2.5rem;
+		padding-bottom:2.5rem;
+	}
+}
+@media (min-width: 992px) {
+	.px-tb {
+		padding-top:4rem;
+		padding-bottom:4rem;
+	}
+}
+
+
+
+
+
+
+// mixins styles
+@mixin fz($h) {
+  font-size: #{$h}rem !important;
+  
+  @media (max-width: 992px) {
+    font-size: calc(#{$h} * 0.95rem) !important;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: calc(#{$h} * 0.9rem) !important;
+  }
+  
+  @media (max-width: 576px) {
+    font-size: calc(#{$h} * 0.85rem) !important;
+  }
+}
+
+

@@ -1,0 +1,112 @@
+{
+  "users": [
+    {
+      "firstName": "David",
+      "lastName": "Johnson",
+      "email": "dj@example.com",
+      "password": "Password1",
+      "dateOfBirth": "1992-07-31",
+      "gender": "Male"
+    },
+    {
+      "firstName": "Emily",
+      "lastName": "Brown",
+      "email": "eb@example.com",
+      "password": "Password2",
+      "dateOfBirth": "1998-09-10",
+      "gender": "Female"
+    },
+    {
+      "firstName": "Alice",
+      "lastName": "Smith",
+      "email": "as@example.com",
+      "password": "Password3",
+      "dateOfBirth": "1988-03-22",
+      "gender": "Other"
+    },
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "jd@example.com",
+      "password": "Password4",
+      "dateOfBirth": "1995-11-15",
+      "gender": "Female"
+    },
+    {
+      "firstName": "Jane",
+      "lastName": "Snow",
+      "email": "js@example.com",
+      "password": "Password5",
+      "dateOfBirth": "2000-05-07",
+      "gender": "Male"
+    }
+  ],
+	"plans": [
+		{
+			"price": 19,
+			"weight": "250g",
+			"name": "The Single",
+			"description": "One bag of freshly roasted coffee beans delivered to your house every month"
+		},
+		{
+			"price": 29,
+			"weight": "500g",
+			"name": "The Curious",
+			"description": "Two different types of freshly roasted coffee every month"
+		},
+		{
+			"price": 49,
+			"weight": "1kg",
+			"name": "The Addict",
+			"description": "Two bags of two different types of freshly roasted coffee every month."
+		}
+	], 
+	"addresses": [
+		{
+			"country": "Latvia",
+			"fullName": "John Doe",
+			"street": "123 Elm Street",
+			"addInfo": "Apt 4B",
+			"city": "Riga",
+			"postalCode": "LV-1001",
+			"phoneNumber": "+37125678901"
+		},
+		{
+			"country": "France",
+			"fullName": "Alice Smith",
+			"street": "456 Oak Avenue",
+			"addInfo": "Suite 2C",
+			"city": "Paris",
+			"postalCode": "75001",
+			"phoneNumber": "+33 6 12 34 56 78"
+		},
+		{
+			"country": "Germany",
+			"fullName": "Emma Johnson",
+			"street": "789 Maple Road",
+			"addInfo": "Unit 5D",
+			"city": "Berlin",
+			"postalCode": "10115",
+			"phoneNumber": "+49 30 12345678"
+		},
+		{
+			"country": "Spain",
+			"fullName": "Daniel Brown",
+			"street": "567 Pine Lane",
+			"addInfo": "Apt 7E",
+			"city": "Barcelona",
+			"postalCode": "08001",
+			"phoneNumber": "+34 93 123 45 67"
+		},
+		{
+			"country": "Latvia",
+			"fullName": "Sophia White",
+			"street": "890 Birch Street",
+			"addInfo": "Unit 3F",
+			"city": "Daugavpils",
+			"postalCode": "LV-5401",
+			"phoneNumber": "+37128884433"
+		}
+	]
+	
+}

@@ -45,7 +45,7 @@
 			padding: 16px;
 			border-radius: 6px;
 			width: fit-content;
-			margin: 32px;
+			margin: 64px;
 		}
 		.pClose {
 			border: none;

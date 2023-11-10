@@ -20,9 +20,7 @@
 <template>
 	<AppHeader />	
 	<div class="view">
-		<div class="container">
-			<RouterView />
-		</div>
+		<RouterView />
 	</div>
 </template>
 

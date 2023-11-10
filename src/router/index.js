@@ -25,6 +25,11 @@ const router = createRouter({
 					name: "multiForm",
 					component: () => import("@/components/ecommerce/EMulti.vue")
 				},
+				{
+					path: "coffee",
+					name: "coffeeShop",
+					component: () => import("@/components/coffeeShop/CoffeeShop.vue")
+				},
 				{ 
 					path: 'protected', 
 					name: "private",

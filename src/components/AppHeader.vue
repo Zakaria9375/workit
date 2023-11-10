@@ -16,7 +16,8 @@
 	const mainLinks = reactive([
 		{ id: 1, title: "home", name: "home" },
 		{ id: 2, title: "facebook", name: "facebook" },
-		{ id: 3, title: "multiForm", name: "multiForm"}
+		{ id: 3, title: "multiForm", name: "multiForm"},
+		{ id: 4, title: "coffeeShop", name: "coffeeShop"}
 	]);
 	//functions
 	function openMenu() {

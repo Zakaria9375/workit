@@ -1,0 +1,133 @@
+<template>
+  <div>
+    <h1 class="title">Delivery details</h1>
+
+    <h2 class="subtitle">
+      Where should we send your freshly roasted coffee beans?
+    </h2>
+
+    <form class="form">
+      <div class="form-group box">
+        <input @change="copytheName" type="checkbox" v-model="copyName" class="cBox" name="copeName" id="copy">
+        <label class="cBox-label" for="copy">Is Recipients Name Same as your name?</label>
+      </div>
+      <div class="form-wrapper">
+        <div class="form-group">
+        <label class="form-label" for="delivery_name">Name</label>
+        <input v-model="v$.form.recipient.$model" type="text" placeholder="Recipients Name" class="form-control" id="delivery_name">
+        
+      </div>
+      <div class="error">
+          <p v-for="error of v$.form.recipient.$errors" :key="error.$uid">
+							<span class="property">{{ error.$property }}</span>
+							<span class="message">{{ error.$message }}</span>
+					</p>
+        </div>
+      </div>
+      
+      <div class="form-wrapper">
+        <div class="form-group">
+        <label class="form-label" for="address">Address</label>
+        <textarea v-model="v$.form.address.$model" placeholder="London Street 470978 New England" rows="3" class="form-control" id="address"></textarea>
+        
+      </div>
+      <div class="error">
+          <p v-for="error of v$.form.address.$errors" :key="error.$uid">
+							<span class="property">{{ error.$property }}</span>
+							<span class="message">{{ error.$message }}</span>
+					</p>
+        </div>
+      </div>
+      <div class="form-wrapper">
+					<div class="error">
+						<p v-if="inValidData">
+							Data is not valid yet
+						</p>
+					</div>
+				</div>
+    </form>
+  </div>
+</template>
+
+<script>
+	import { useVuelidate } from "@vuelidate/core";
+	import { required } from "@vuelidate/validators";
+  export default {
+		setup() {
+			return {
+				v$: useVuelidate(),
+			};
+		},
+    props: {
+      wizardDate: {
+        type: Object
+      }
+    },
+    data () {
+      return {
+        inValidData: false,
+        form: {
+          address: "",
+          recipient: ""
+        },
+        copyName: false
+      }
+    },
+		methods: {
+			submit(){
+        this.v$.$touch();
+        return new Promise((resolve, reject) => {
+          if(!this.v$.$invalid) {
+            this.inValidData = false;
+            resolve({
+              recipient: this.form.recipient,
+              address: this.form.address
+            })
+          }
+          else {
+            this.inValidData = true;
+						setTimeout(() => {this.inValidData = false}, 5000)
+						reject('data is not valid yet')
+          }
+        })
+			},
+      copytheName(){
+        if(this.copyName) {
+          this.form.recipient = this.wizardDate.name
+        }
+        if(!this.copyName) {
+          this.form.recipient = ""
+        }
+      }
+		},
+		validations() {
+			return {
+				form: {
+        address: {
+          required
+        },
+        recipient: {
+          required
+        }
+			}
+		}
+    }
+  }
+</script>
+
+<style scoped lang="scss">
+	@import "@/assets/css/main.scss";
+
+  .cBox {
+    margin-left: 5rem;  
+    margin-right: 1rem;  
+    padding: 8px;
+    width: 16px;
+    height: 16px;
+  }
+  .cBox-label {
+    color: #5c6162;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+</style>

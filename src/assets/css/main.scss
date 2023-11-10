@@ -3,6 +3,9 @@
 	--c-primary: #419bf9;
 	--c-secondary: #cc6600;
 	--c-act: #cc6600;
+	--c-cofeBg: #7dacaf;
+	--c-cofe: #136268;
+	--c-price: #09848d;
 
 	--c-bg1: #fff;
 	--c-bg2: #f2f2f2;
@@ -16,20 +19,24 @@
 	--c-t3: #404040;
 	
 	--c-d1: rgba(60, 60, 60, 0.22);
+	--c-overlay: rgb(0, 0, 0, 0 );
+	--c-transbg: rgba(0, 0, 0, 0.5);
 
-	--c-transbg: rgb(0, 0, 0, 0.2 );
-
-	--c-g: #757575;
 	--c-gb: #546E7A;
+	--c-error: #e3342f;
 
 	--c-bs: rgba(0, 0, 0, 0.1) 0px 2px 4px,
 	rgba(0, 0, 0, 0.2) 0px 2px 6px;
+	--c-bs2: 0 15px 30px 0 rgba(0, 0, 0, 0.11),
+	0 5px 15px 0 rgba(0, 0, 0, 0.08);
 }
 [theme='dark'] {
 	--c-primary: #0dcfda;
 	--c-secondary: #ff9933;
 	--c-act: #0dcfda;
-
+	--c-cofeBg: #ff9933;
+	--c-cofe: #7d3f06;
+	--c-price: #ff9933;
 	--c-bg1: #1a1a1a;
 	--c-bg2: #2f2f2f;
 	--c-bg3: #757575;
@@ -42,14 +49,16 @@
 	--c-t3: #DEE4E7;
 
 	--c-d1: rgba(84, 84, 84, 0.95);
+	--c-overlay: rgb(0, 0, 0, 0.7 );
+	--c-transbg: rgba(0, 0, 0, 0.8 );
 
-	--c-transbg: rgb(0, 0, 0, 0.8 );
-
-	--c-g: #E0E0E0;
 	--c-gb: #90A4AE;
+	--c-error: #ff6347;
 
 	--c-bs: rgba(255, 255, 255, 0.05) 0px 2px 4px,
-	rgba(255, 255, 255, 0.1) 0px 2px 6px
+	rgba(255, 255, 255, 0.1) 0px 2px 6px;
+	--c-bs2: 0 15px 30px 0 rgba(0, 0, 0, 0.26),
+	0 5px 15px 0 rgba(0, 0, 0, 0.23);
 }
 
 @function getColor($color-name) {

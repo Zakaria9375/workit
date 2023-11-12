@@ -1,19 +1,23 @@
 <script setup>
 	import { store } from "@/store.js";
+	import { computed } from 'vue'
+	import { useWindowSize  } from "@vueuse/core";
+	const { width, height } = useWindowSize();
+	const w = computed(()=> `${width.value}px`)
+	const h = computed(()=> `${height.value}px`)
+
 </script>
 <template>
 	<div class="popUp">
 		<div class="flex">
-			<div class="content">
 				<div class="popInner">
 					<button class="pClose" @click="store.closeThePopUp">
 						<i class="fa-solid fa-circle-xmark"></i>
 					</button>
-					<slot />
+					<slot class="content"/>
 				</div>
 			</div>
 		</div>
-	</div>
 </template>
 <style scoped lang="scss">
 	@import "@/assets/css/main.scss";
@@ -25,21 +29,16 @@
 		right: 0;
 		bottom: 0;
 		z-index: 11;
-		width: 100%;
 		background-color: getColor(transbg);
-
+		overflow: auto;
 		.flex {
-			width: 100%;
-			max-height: 100%;
-			overflow: auto;
-		}
-		.content {
+			width: calc(v-bind(w) - 20px);
+			min-height: calc(v-bind(h) - 20px);
 			display: flex;
 			align-items: center;
 			justify-content: center;
 		}
 		.popInner {
-			max-height: 100%;
 			position: relative;
 			background-color: getColor(bg1);
 			padding: 16px;

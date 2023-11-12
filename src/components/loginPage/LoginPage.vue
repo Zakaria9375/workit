@@ -77,14 +77,15 @@
           </h2>
         </div>
       </div>
-      <PopUp v-if="store.openPopUp" >
+      
+    </div>
+  </div>
+  <PopUp v-if="store.openPopUp" >
         <RegisterPage/>
       </PopUp>
 			<PopUp v-if="store.openPopUp2" >
         <LoginData/>
       </PopUp>
-    </div>
-  </div>
 </template>
 <style scoped lang="scss">
 @import "@/assets/css/main.scss";

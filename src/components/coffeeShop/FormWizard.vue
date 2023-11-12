@@ -100,7 +100,10 @@
 				Submit
 			</button>
 		</div>
-		<pre><code>{{form}}</code></pre>
+		<div class="code">
+			<pre><code>{{form}}</code></pre>
+		</div>
+		
 	</div>
 	<div v-if="submitted">
 		<h1 class="title">Thank you!</h1>
@@ -128,6 +131,10 @@
 
 <style lang="scss">
 	@import "@/assets/css/main.scss";
+	.code {
+		max-width: 100%;
+		overflow: auto;
+	}
 	.buttons {
 			display: flex;
 			justify-content: flex-end;
@@ -255,26 +262,34 @@
 	}
 	.form {
 		padding: 0.8rem 4rem;
+		@include mScreen {
+			padding: 0.5rem;
+		}
 		display: flex;
 		flex-direction: column;
 		.form-group {
 			display: flex;
 			width: 100%;
 			align-items: center;
-			margin: 0.5rem 2rem;
-			justify-content: flex-start;
+			margin: 0.5rem;
+			justify-content: flex-end;
 
 			.form-label {
 				flex-basis: 20%;
 				text-align: right;
 				margin-right: 2rem;
+				@include mobile {
+					margin-right: 0.8rem;
+				}
 				font-weight: 500;
 				color: #5c6162;
+				@include fontz(1.1, 500, t2)
 			}
 			.form-control {
 				flex-basis: 60%;
 				border-radius: 0.25rem;
 				padding: 0.5rem 0.75rem;
+				flex-grow: 1;
 				color: #5c6162;
 				font-weight: 500;
 				background-color: #f4f7f7;
@@ -392,6 +407,7 @@
 		.active-plan {
 			box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11),
 				0 5px 15px 0 rgba(0, 0, 0, 0.08);
+				border:1px solid getColor(cofe);
 		}
 	}
 </style>

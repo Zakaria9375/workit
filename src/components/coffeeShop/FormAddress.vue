@@ -7,7 +7,7 @@
     </h2>
 
     <form class="form">
-      <div class="form-group box">
+      <div class="box">
         <input @change="copytheName" type="checkbox" v-model="copyName" class="cBox" name="copeName" id="copy">
         <label class="cBox-label" for="copy">Is Recipients Name Same as your name?</label>
       </div>
@@ -117,17 +117,26 @@
 
 <style scoped lang="scss">
 	@import "@/assets/css/main.scss";
-
+  .box {
+    margin: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
   .cBox {
     margin-left: 5rem;  
+    display: inline-block;
     margin-right: 1rem;  
     padding: 8px;
     width: 16px;
     height: 16px;
+    @include mobile {
+      margin-left: 0;  
+    }
   }
   .cBox-label {
-    color: #5c6162;
-    font-weight: 500;
-    font-size: 1rem;
+    @include fontz(1.2, 500, t2);
+    display: inline-block;
   }
 </style>

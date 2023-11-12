@@ -6,22 +6,22 @@
 <template>
 	<div class="user-table">
 		<h1>Information</h1>
-		<h4>Log In</h4>
-		<p>Only these records below will give you a successful login</p>
 		<h4>Create New Account</h4>
 		<p>
-			If you use one of the reqistered emails to recreate a new record, A
-			validation error will prevent submittion.
+			this step (Second Step) has three fields email, password and name if email exist password and login button will be displayed and the name field will called form the database. If not, password and name will appear to store the new data.
 		</p>
-		<h4>Credentials</h4>
-		<p>During logging, if email is not registered a message will appear 'User not registered'. if email is correct and password was incorrect a 'Invalid Password' message will appear.</p>
+		<h4>Email</h4>
+		<p>In second Step The email field will be checked first. If the email exists in database or not. If it exist, login page will appear. If not, fields for for new users will appear</p>
+		<h4>Log In</h4>
+		<p> Only these records below will give you a successful login</p>
+		<h4>Review your Order</h4>
+		<p>Checked box will be emitted during submittion that's way their value will never be changed in code in step 4</p>
 		<table>
 			<thead>
 				<tr>
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
-
 					<th>Password</th>
 					<th>Date of Birth</th>
 				</tr>

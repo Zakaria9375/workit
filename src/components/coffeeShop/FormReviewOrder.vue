@@ -15,20 +15,20 @@
 
       <div class="plans">
         <div class="plan active-plan">
-          <div class="weight">
+          <div class="weight item1">
             {{ wizardDate.plan.weight }}
           </div>
 
-          <div class="description">
+          <div class="description item2">
             <span class="title">
               {{ wizardDate.plan.name }}
             </span>
-            <span class="description">
+            <span class="description ">
               {{ wizardDate.plan.description }}
             </span>
           </div>
 
-          <div class="price">
+          <div class="price item3">
             <span class="dollar-sign">$</span>
             <span class="number">{{totalPrice}}</span>
           </div>
@@ -122,26 +122,24 @@
 </script>
 
 <style scoped lang="scss">
+	@import "@/assets/css/main.scss";
+
 .summary {
-  background-color: #fff;
+  background-color: getColor(bg2);
   border-radius: 0.5rem;
   padding: 1.5rem;
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11), 0 5px 15px 0 rgba(0, 0, 0, 0.08);
   margin-bottom: 2rem;
 
   h3 {
-    font-size: 1.125rem;
-    color: #5c6162;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+    margin-bottom: 0.75rem;
     letter-spacing: 0.05em;
+    @include fontoo(1.2rem, 500, t2);
   }
 
   p.description {
-    color: #8795a1;
-    font-size: 0.875rem;
     width: 66.66667%;
-    line-height: 1.5;
+    @include fontoo(0.95rem, 500, t1);
   }
 
   hr {
@@ -150,15 +148,13 @@
   }
 
   .options {
-    margin-top: 1rem;
+    margin-top: 1.2rem;
     margin-bottom: 2rem;
 
     .option {
-      margin-top: 0.5rem;
+      margin-top: 0.75rem;
       letter-spacing: 0.05em;
-      color: #5c6162;
-      font-weight: 500;
-      font-size: 0.875rem;
+      @include fontoo(0.875rem, 500, t3);
 
       input {
         margin-left: 1rem;
@@ -169,6 +165,9 @@
 
   .address {
     display: flex;
+    p {
+      @include fontoo(1rem, 500, t3);
+    }
   }
 }
 </style>

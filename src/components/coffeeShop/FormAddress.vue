@@ -1,25 +1,24 @@
 <template>
   <div>
-    <h1 class="title">Delivery details</h1>
+    <h1 class="title">{{ $t('dd') }}</h1>
 
     <h2 class="subtitle">
-      Where should we send your freshly roasted coffee beans?
+      {{$t('ddSubtitle')}}
     </h2>
 
     <form class="form">
       <div class="box">
         <input @change="copytheName" type="checkbox" v-model="copyName" class="cBox" name="copeName" id="copy">
-        <label class="cBox-label" for="copy">Is Recipients Name Same as your name?</label>
+        <label class="cBox-label" for="copy">{{$t('sameAs')}}</label>
       </div>
       <div class="form-wrapper">
         <div class="form-group">
-        <label class="form-label" for="delivery_name">Name</label>
-        <input v-model="v$.form.recipient.$model" type="text" placeholder="Recipients Name" class="form-control" id="delivery_name">
-        
+        <label class="form-label" for="delivery_name">{{ $t('name') }}</label>
+        <input v-model="v$.form.recipient.$model" type="text" placeholder="Recipients Name" class="form-control" id="delivery_name" @blur="v$.form.recipient.$touch">
+         
       </div>
       <div class="error">
           <p v-for="error of v$.form.recipient.$errors" :key="error.$uid">
-							<span class="property">{{ error.$property }}</span>
 							<span class="message">{{ error.$message }}</span>
 					</p>
         </div>
@@ -27,13 +26,12 @@
       
       <div class="form-wrapper">
         <div class="form-group">
-        <label class="form-label" for="address">Address</label>
-        <textarea v-model="v$.form.address.$model" placeholder="London Street 470978 New England" rows="3" class="form-control" id="address"></textarea>
+        <label class="form-label" for="address">{{ $t('address') }}</label>
+        <textarea v-model="v$.form.address.$model"  @blur="v$.form.address.$touch" placeholder="London Street 470978 New England" rows="3" class="form-control" id="address"></textarea>
         
       </div>
       <div class="error">
           <p v-for="error of v$.form.address.$errors" :key="error.$uid">
-							<span class="property">{{ error.$property }}</span>
 							<span class="message">{{ error.$message }}</span>
 					</p>
         </div>
@@ -41,7 +39,7 @@
       <div class="form-wrapper">
 					<div class="error">
 						<p v-if="inValidData">
-							Data is not valid yet
+							{{ $t('invalidData') }}
 						</p>
 					</div>
 				</div>
@@ -51,7 +49,7 @@
 
 <script>
 	import { useVuelidate } from "@vuelidate/core";
-	import { required } from "@vuelidate/validators";
+	import { required } from "@/i18n/rules/i18n-validators.js"
   export default {
 		setup() {
 			return {

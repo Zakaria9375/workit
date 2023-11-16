@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouterView } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import LoginPage from "@/components/loginPage/LoginPage.vue";
 import Trans from "../i18n/translate";
 import { store } from "@/store.js";
 const router = createRouter({
@@ -12,13 +12,13 @@ const router = createRouter({
 			children: [
 				{
 					path: "",
-					name: "home",
-					component: HomeView,
+					name: "facebook",
+					component: LoginPage,
 				},
 				{
-					path: "login",
-					name: "facebook",
-					component: () => import("@/components/loginPage/LoginPage.vue")
+					path: "about",
+					name: "about",
+					component: () => import("@/views/AboutView.vue")
 				},
 				{
 					path: "multiForm",
@@ -29,6 +29,11 @@ const router = createRouter({
 					path: "coffee",
 					name: "coffeeShop",
 					component: () => import("@/components/coffeeShop/CoffeeShop.vue")
+				},
+				{
+					path: "amazon",
+					name: "amazon",
+					component: () => import("@/components/amazon/AmazonForm.vue")
 				},
 				{ 
 					path: 'protected', 

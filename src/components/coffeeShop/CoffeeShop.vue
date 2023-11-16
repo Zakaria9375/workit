@@ -10,7 +10,7 @@
 			<div class="container">
 				<header>
 					<div>
-						<span class="logo">Liquid Gold Box</span>
+						<span class="logo">{{$t('lgb')}}</span>
 						<span @click="store.togglePopUp3" class="dataInfo"><i class="fa-regular fa-circle-question"></i></span>
 					</div>
 				</header>

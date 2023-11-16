@@ -11,6 +11,7 @@
 	--c-bg2: #f2f2f2;
 	--c-bg3: #E0E0E0;
 	--c-bg4: #BDBDBD;
+	--c-bg5: #fff;
 
 	--c-bg-s: #f9f9f9;
 
@@ -41,6 +42,7 @@
 	--c-bg2: #2f2f2f;
 	--c-bg3: #757575;
 	--c-bg4: #9E9E9E;
+	--c-bg5: #3d4141;
 
 	--c-bg-s: #242424;
 
@@ -126,11 +128,11 @@
 }
 .myLabel {
 
-	@include fontoo(0.9rem, 400, t1);
+	@include fontoo(1rem, 500, t1);
 }
 .myHelp {
 	line-height: 1.3 !important;
-	@include fontoo(0.9rem, 400, t1);
+	@include fontoo(1rem, 500, t1);
 }
 .formkit-outer {
 	@include mobile {

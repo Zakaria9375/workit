@@ -76,7 +76,6 @@
 			/>
 			<FormKit
 				type="date"
-				:value="formattedDate"
 				:label="$t('Dob')"
 				:classes="{
 					help: 'myHelp',
@@ -84,6 +83,7 @@
 				}"
 				name="dataOfBirth"
 				:help="$t('helpDOB')"
+				placeholder="MM/DD/YYYY"
 				validation="required|date_before:2010-01-01"
 				validation-label="Data of Birth"
 				:max="formattedDate"

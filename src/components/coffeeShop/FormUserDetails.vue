@@ -1,16 +1,16 @@
 <template>
 	<div class="mainUser">
 		<div>
-			<h1 class="title">Create Account</h1>
+			<h1 class="title">{{ $t('createAcc') }}</h1>
 
 			<h2 class="subtitle">
-				Create an account or log in to order your liquid gold subscription
+				{{ $t('createAccountorLogin') }}
 			</h2>
 
 			<form v-if="!loggedIn" class="form" >
 				<div class="form-wrapper">
 					<div class="form-group">
-						<label class="form-label" for="email">Email</label>
+						<label class="form-label" for="email">{{ $t('email') }}</label>
 						<input
 							@blur="v$.form.email.$touch"
 							type="text"
@@ -23,14 +23,13 @@
 					</div>
 					<div class="error">
 						<p v-for="error of v$.form.email.$errors" :key="error.$uid">
-							<span class="property">{{ error.$property }}</span>
 							<span class="message">{{ error.$message }}</span>
 						</p>
 					</div>
 				</div>
 				<div class="from-wrapper">
 					<div v-if="emailCheckedInDB" class="form-group">
-						<label class="form-label" for="password">Password</label>
+						<label class="form-label" for="password">{{ $t('phPassword') }}</label>
 						<input
 							v-model="v$.form.password.$model"
 							@blur="v$.form.password.$touch"
@@ -42,13 +41,12 @@
 					</div>
 					<div class="error">
 						<p v-for="error of v$.form.password.$errors" :key="error.$uid">
-							<span class="property">{{ error.$property }}</span>
 							<span class="message">{{ error.$message }}</span>
 						</p>
 					</div>
 					<div class="error">
 						<p v-if="invalidPassword && existingUser">
-							Supplied credentials do not match any user
+							{{$t('suppliedCrd')}}
 						</p>
 					</div>
 					<div 
@@ -56,17 +54,17 @@
 						v-show="!v$.form.password.$dirty"
 						class="info"
 					>
-						<p>This email is registered. Please, login</p>
+						<p>{{ $t('loginMessage') }}</p>
 					</div>
 				</div>
 				<div v-if="emailCheckedInDB && existingUser"  class="form-wrapper">
 					<div class="buttons">
-						<button @click.prevent="login" class="btn btn-right">Login</button>
+						<button @click.prevent="login" class="btn btn-right">{{ $t('logIn') }}</button>
 					</div>
 				</div>
 				<div v-if="emailCheckedInDB && !existingUser" class="form-wrapper">
 					<div  class="form-group">
-						<label class="form-label" for="name">Name</label>
+						<label class="form-label" for="name">{{ $t('name') }}</label>
 						<input
 							v-model="v$.form.name.$model"
 							@blur="v$.form.name.$touch"
@@ -78,7 +76,7 @@
 					</div>
 					<div class="error">
 						<p v-for="error of v$.form.name.$errors" :key="error.$uid">
-							<span class="property">{{ error.$property }}</span>
+
 							<span class="message">{{ error.$message }}</span>
 						</p>
 					</div>
@@ -86,15 +84,15 @@
 				<div class="form-wrapper">
 					<div class="error">
 						<p v-if="inValidData">
-							Data is not valid yet
+							{{ $t('invalidData') }}
 						</p>
 					</div>
 				</div>
 			</form>
 			<div v-if="loggedIn" class="text-center logging">
-				<p>Successfully logged in!</p>
+				<p>{{ $t('logInSuccess') }}</p>
 				<a href="#" @click="reset">
-					Not <span>{{ form.name }}</span>?
+					{{$t('not')}} <span>{{ form.name }}</span>?
 				</a>
 			</div>
 		</div>
@@ -103,13 +101,9 @@
 
 <script>
 	import { useVuelidate } from "@vuelidate/core";
-	import { required, email, minLength, helpers } from "@vuelidate/validators";
-	
+	import { required, minLength, email } from "@/i18n/rules/i18n-validators.js"
 	import {api} from "@/stores/api.js";
-	const isValidName = helpers.regex('isValidName', /^[a-zA-Z]*$/);
-	const hasUpperCase = helpers.regex('hasUpperCase', /^(?=.*[A-Z])/);
-	const hasLowerCase = helpers.regex('hasLowerCase', /^(?=.*[a-z])/);
-	const hasDigit = helpers.regex('hasDigit', /^(?=.*\d)/);
+
 	export default {
 		setup() {
 			return {
@@ -143,18 +137,14 @@
           ? {}
           : {
               minLength: minLength(8),
-              // hasUpperCase: helpers.withMessage('Must contain at least one uppercase letter', hasUpperCase),
-              // hasLowerCase: helpers.withMessage('Must contain at least one lowercase letter', hasLowerCase),
-              // hasDigit: helpers.withMessage('Must contain at least one digit', hasDigit),
             }) 
 					},
 					name: {
 						...(this.existingUser
           ? {}
           : {
-              required: helpers.withMessage('Name is required', required),
+              required,
               minLength: minLength(2),
-              // isValidName: helpers.withMessage('Invalid name format', isValidName),
             }) 
 					},
 				},

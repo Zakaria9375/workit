@@ -1,10 +1,8 @@
 <template>
 	<div class="planMain">
-		<h1 class="title">Coffee Plans</h1>
+		<h1 class="title">{{ $t('coffePlans') }}</h1>
 
-		<h2 class="subtitle">
-			We travel the world to source the very best single origin coffee for you
-		</h2>
+		<h2 class="subtitle">{{ $t('travelWorld') }}</h2>
 
 		<div class="plans">
 			<div
@@ -15,14 +13,14 @@
 				class="plan"
 			>
 				<div class="weight item1">
-					{{ plan.weight }}
+					{{ $t(`${plan.weight}`) }}
 				</div>
 				<div class="description item2">
 					<span class="title">
-						{{ plan.name }}
+						{{ $t(`${plan.name}`) }}
 					</span>
 					<span class="description">
-						{{ plan.description }}
+						{{ $t(`${plan.description}`) }}
 					</span>
 				</div>
 				<div class="price item3">
@@ -32,15 +30,18 @@
 			</div>
 		</div>
 		<div v-if="v$.selectedPlan.$invalid" class="error">
-			You should pick a plan to continue
+			{{ $t('planError') }}
 		</div>
 	</div>
 </template>
 
 <script>
 	import { useVuelidate } from "@vuelidate/core";
-	import { required } from "@vuelidate/validators";
+	// import { required } from "@vuelidate/validators";
 	import sourceData from "@/Data/myData.json";
+	import { required } from "@/i18n/rules/i18n-validators.js"
+
+
 	export default {
 		setup() {
 			return {

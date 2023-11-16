@@ -14,10 +14,12 @@
 	const toggleDark = useToggle(isDark);
 	const openIt = ref(false);
 	const mainLinks = reactive([
-		{ id: 1, title: "home", name: "home" },
-		{ id: 2, title: "facebook", name: "facebook" },
-		{ id: 3, title: "multiForm", name: "multiForm"},
-		{ id: 4, title: "coffeeShop", name: "coffeeShop"}
+		
+		{ id: 1, title: "facebook", name: "facebook" },
+		{ id: 2, title: "multiForm", name: "multiForm"},
+		{ id: 3, title: "coffeeShop", name: "coffeeShop"},
+		{ id: 4, title: "amazon", name: "amazon" },
+		{ id: 5, title: "about", name: "about" },
 	]);
 	//functions
 	function openMenu() {
@@ -29,7 +31,7 @@
 		<div class="overlay">
 			<div class="container">
 				<div class="main">
-					<RouterLink :to="Trans.i18nRoute({ name: 'home' })" class="logo">
+					<RouterLink :to="Trans.i18nRoute({ name: 'facebook' })" class="logo">
 					<span>work<span>it</span></span>
 				</RouterLink>
 				<nav>

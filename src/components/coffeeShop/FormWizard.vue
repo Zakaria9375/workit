@@ -83,13 +83,13 @@
 
 		<!-- Actions -->
 		<div class="buttons">
-			<button @click="goBack" v-if="csn > 1" class="btn-left btn">Back</button>
+			<button @click="goBack" v-if="csn > 1" class="btn-left btn">{{$t("back")}}</button>
 			<button
 				@click="goNext"
 				v-if="csn < 4"
 				class="btn-right btn"
 			>
-				Next
+				{{$t("next")}}
 			</button>
 			<button
 				type="submit"
@@ -97,7 +97,7 @@
 				@click="handleSubmit"
 				class="btn btn-right"
 			>
-				Submit
+				{{$t("submit")}}
 			</button>
 		</div>
 		<div class="code">
@@ -106,14 +106,14 @@
 		
 	</div>
 	<div v-if="submitted">
-		<h1 class="title">Thank you!</h1>
-		<h2 class="subtitle">We look forward to shipping you your first box!</h2>
+		<h1 class="title">{{ $t('thanks') }}</h1>
+		<h2 class="subtitle">{{ $t('toShip') }}</h2>
 	</div>
 	<div class="message" v-if="asyncState === 'pending'">
 		<div class="loading-wrapper" >
 			<div class="loader">
 				<img src="/svg/spinner.svg" alt="spinner" />
-				<p>Please wait, we're hitting our servers!</p>
+				<p>{{ $t('waitServer') }}</p>
 			</div>
 		</div>
 	</div>

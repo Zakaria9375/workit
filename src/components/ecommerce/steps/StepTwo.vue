@@ -5,7 +5,7 @@ import { FormKit } from "@formkit/vue";
   <FormKit
     type="select"
     :label="$t('country')"
-		name="sCountry"
+		name="shippingCountry"
 		placeholder="Select a country"
 		:options="[
     $t('France'),
@@ -18,7 +18,7 @@ import { FormKit } from "@formkit/vue";
 		<FormKit
     type="text"
     :label="$t('city')"
-		name="sCity"
+		name="shippingCity"
     validation="required|spaces"
 		placeholder="Paris"
 		:classes="{outer: {'myOuter1': true}}"
@@ -26,7 +26,7 @@ import { FormKit } from "@formkit/vue";
 	<FormKit
     type="text"
     :label="$t('zipCode')"
-		name="sZipCode"
+		name="shippingZipCode"
     validation="required|spaces"
 		placeholder="GU16 7HF"
 		:classes="{outer: {'myOuter2': true}}"
@@ -35,12 +35,12 @@ import { FormKit } from "@formkit/vue";
   <FormKit
     type="text"
     :label="$t('street')"
-		name="sStreet"
+		name="shippingStreet"
     validation="required|spaces"
 		placeholder="32 George Street"
   />
   <FormKit
-    name="sAdditionalInfo"
+    name="shippingAdditionalInfo"
     :label="$t('addInfo')"
     validation="required"
 		placeholder="Flat 32, Third Floor"

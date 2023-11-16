@@ -1,16 +1,16 @@
 <template>
   <div>
-    <h1 class="title">Confirm your order</h1>
+    <h1 class="title">{{ $t('confirmOrder') }}</h1>
 
     <h2 class="subtitle">
-      We're almost there!
+      {{ $t('weThere') }}
     </h2>
 
     <div class="summary">
-      <h3>Subscription</h3>
+      <h3>{{ $t('subscription') }}</h3>
 
       <p class="description">
-        We'll send you carefully selected coffee every month.
+        {{ $t('selectedCofe') }}
       </p>
 
       <div class="plans">
@@ -21,10 +21,10 @@
 
           <div class="description item2">
             <span class="title">
-              {{ wizardDate.plan.name }}
+              {{ $t(`${wizardDate.plan.name}`) }}
             </span>
             <span class="description ">
-              {{ wizardDate.plan.description }}
+              {{ $t(`${wizardDate.plan.description}`) }}
             </span>
           </div>
 
@@ -36,22 +36,22 @@
       </div>
 
       <h3>
-        Level up your box
+        {{ $t('lvlUp') }}
       </h3>
 
       <p class="description">
-        Treat yourself by leveling up your monthly box
+        {{ $t('trtDescription') }}
       </p>
 
       <div class="options" >
         <div class="option">
           <input v-model="form.chocolate" type="checkbox" value="chocolate" id="chocolate">
-          <label for="chocolate">4 pcs. Single Origin Chocolate (+$4/month)</label>
+          <label for="chocolate">{{ $t('chocloteTrt') }}</label>
         </div>
 
         <div class="option">
           <input v-model="form.otherTreat" type="checkbox" value="chocolate" id="other_treat">
-          <label for="other_treat">Another delicious treat (+$2/month)</label>
+          <label for="other_treat">{{ $t('anotherTrt') }}</label>
         </div>
       </div>
 
@@ -59,7 +59,7 @@
         <div class="w-2/3">
           <h3>Delivery</h3>
           <p class="description">
-            Your first Liquid Gold Box is right around the corner
+            {{ $t('almostReady') }}
           </p>
         </div>
 

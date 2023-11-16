@@ -20,6 +20,7 @@ import { FormKit } from "@formkit/vue";
     :label="$t('month')"
 		name="month"
     validation="required"
+    placeholder="MM"
 		:options="['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']"
 		:classes="{ outer: {'myOuter': true}, option: {'myOption': true}, input:{'selectedInput': true}}"
 
@@ -29,12 +30,13 @@ import { FormKit } from "@formkit/vue";
     :label="$t('year')"
 		name="year"
     validation="required"
+    placeholder="YYYY"
 		:options="['2023', '2024', '2025', '2026', '2027', '2028']"
 		:classes="{ outer: {'myOuter': true}, option: {'myOption': true}, input:{'selectedInput': true}}"
   />
   <FormKit
     type="text"
-    name="Cvv"
+    name="cvv"
     label="CVV"
     validation="required|number|length:3,3"
 		:classes="{ outer: {'myOuter': true}}"

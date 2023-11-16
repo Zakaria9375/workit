@@ -2,19 +2,6 @@
 //imports
 	import AppHeader from '@/components/AppHeader.vue'
 	import {	RouterView } from 'vue-router'
-	import { useTitle } from '@vueuse/core';
-	import { ref, watch, onMounted } from 'vue'
-	import { useRoute } from 'vue-router'
-//constants
-	const pageTitle = useTitle()
-	const route = useRoute()
-//computed
-//watchers
-	watch(route, () => {
-		pageTitle.value = route.name
-	})
-//methods
-
 </script>
 
 <template>
@@ -29,7 +16,7 @@
 
 .view {
 	min-height: calc(99.9dvh - 60px);
-	background-color: getColor(bg1);
+	background-color: getColor(bg5);
 	color:	getColor(t1);
 }
 

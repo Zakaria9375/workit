@@ -4,13 +4,13 @@ const techs = ['Vue js', 'Formkit', 'Vuelidate', 'Sass', 'Javascript', 'i18n', '
 </script>
 <template>
 	<main>
-		<div class="container">
+		<div class="container px">
 			<section>
 				<h2 class="top">What is workit?</h2>
 				<p>A project that has been built to demonstrarte the pros and cons of forms libraries of vue js. The most common libraries are Formkit, Vee-validate, Vuelidate</p>
-				<p class="list"><span>Vuelidate</span> focus only on validation, decoupled from the template, so flexable.</p>
-				<p class="list"><span>Formkit</span> is an entire framework for forms in vue js, powerful documentation, expecting to be so much popular in few years.</p>
-				<p class="list"><span>Vee-validate,</span> An intermediate solution between vuelidate and formkit.</p>
+				<p class="list"><span>Vuelidate</span> focus only on validation, decoupled from the template, so flexible.</p>
+				<p class="list"><span>Formkit</span> is an entire library for forms in vue js, powerful documentation, offering everything not just validation</p>
+				<p class="list"><span>Vee-validate,</span> An intermediate solution between vuelidate and formkit. it is great as it offers both declarative components as base input field or composable functions API that work with composition API.</p>
 			</section>
 			<section>
 				<h2>What are the technologies used in workit?</h2>
@@ -42,6 +42,10 @@ const techs = ['Vue js', 'Formkit', 'Vuelidate', 'Sass', 'Javascript', 'i18n', '
 <style scoped lang="scss">
 	@import "@/assets/css/main.scss";
 	main {
+		.px {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
 		.container {
 			padding-bottom: 2rem;
 			padding-top: 2rem;

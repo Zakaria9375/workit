@@ -1,11 +1,8 @@
 import i18n from "@/i18n"
 import { nextTick } from "vue"
-
+const destinations = ["facebook", "about", "multiForm", "coffee", "amazon", "protected"];
 const	Trans = {
 	supportedLocales : ['en', 'fr', 'ru'],
-	// get supportedLocales(){
-	// 	return (import.meta.env.I18N_SUPPORTED_LOCALES).split(",")
-	// },
 	get defaultLocale(){
 		return import.meta.env.I18N_LOCALE
 	},
@@ -71,7 +68,7 @@ const	Trans = {
 		const paramLocale = to.params.locale
 		if (!Trans.isLocaleSupported(paramLocale)) {
 			return next(Trans.guessDefaultLocale());
-		}
+		} 
 		await Trans.switchLanguage(paramLocale)
 		return next()
 	},

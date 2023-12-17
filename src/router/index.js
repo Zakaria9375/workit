@@ -7,40 +7,52 @@ const router = createRouter({
 	routes: [
 		{
 			path: "/:locale?",
+			name: "home",
 			component: RouterView,
 			beforeEnter: Trans.routeMiddleware,
 			children: [
 				{
 					path: "",
+					redirect: {name: 'facebook'}
+				},
+				{
+					path: "facebook",
 					name: "facebook",
 					component: LoginPage,
 				},
 				{
 					path: "about",
 					name: "about",
-					component: () => import("@/views/AboutView.vue")
+					component: () => import("@/views/AboutView.vue"),
 				},
 				{
 					path: "multiForm",
 					name: "multiForm",
-					component: () => import("@/components/ecommerce/EMulti.vue")
+					component: () => import("@/components/ecommerce/EMulti.vue"),
 				},
 				{
 					path: "coffee",
 					name: "coffeeShop",
-					component: () => import("@/components/coffeeShop/CoffeeShop.vue")
+					component: () => import("@/components/coffeeShop/CoffeeShop.vue"),
 				},
 				{
 					path: "amazon",
 					name: "amazon",
-					component: () => import("@/components/amazon/AmazonForm.vue")
+					component: () => import("@/components/amazon/AmazonForm.vue"),
 				},
-				{ 
-					path: 'protected', 
+				{
+					path: "protected",
 					name: "private",
-					component: () => import("@/components/loginPage/ProtectedPage.vue"), 
-					meta: { requiresAuth: true } },
+					component: () => import("@/components/loginPage/ProtectedPage.vue"),
+					meta: { requiresAuth: true },
+				},
 			],
+		},
+		{
+			path: "/:pathMatch(.*)*",
+			name: "NotFound",
+			component: () => import("@/views/NotFoundPage.vue"),
+
 		},
 	],
 	linkActiveClass: "active",
@@ -48,11 +60,11 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	if (to.matched.some(record => record.meta.requiresAuth)) {
+	if (to.matched.some((record) => record.meta.requiresAuth)) {
 		if (store.isAuthenticated) {
 			next();
 		} else {
-			next({ name: 'facebook' });
+			next({ name: "facebook" });
 		}
 	} else {
 		next();
